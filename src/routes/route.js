@@ -35,6 +35,12 @@ router.get('/candidates/:canidatesName', function(req, res){
     console.log('Candidates name is '+req.params.canidatesName)
     res.send('Done')
 })
+router.get('/movies', function(req, res){
+    let arr=['conjuring','popup','building']
+    res.send(arr)
+
+});
+
 
 
 module.exports = router;
