@@ -1,5 +1,6 @@
 const { count } = require("console")
 const Authorecollection= require("../models/authorCollection")
+const bookcollection = require("../models/bookcollection")
 const BookCollection=require("../models/bookcollection")
 
 
@@ -30,7 +31,13 @@ const nameList=async function(req,res){
 const authoreName=async function(req,res){
     let data=await BookCollection.find({price : {$gte:50 , $lte:100}}).select("author_id")
     
+    
     res.send({msg:data})
+}
+const listofAuthore= async function(req,res){
+    let a=await Authorecollection.find({age:{$gt:50} })
+    let b=await BookCollection.find({author_id:a[0].author_id})
+    res.send({msg:b})
 }
 
 
@@ -45,6 +52,7 @@ module.exports.createBookModel=createBookModel
 module.exports.listOfBooks=listOfBooks
 module.exports.nameList=nameList
 module.exports.authoreName=authoreName
+module.exports.listofAuthore=listofAuthore
 
 
 

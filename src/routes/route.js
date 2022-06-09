@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const BookController=require("../controllers/bookController")
+const BookController=require("../controllers/bookController");
+const AuthorCollection = require('../models/authorCollection');
+const bookcollection = require('../models/bookcollection');
 
 router.post("/createAuthore",BookController.createAuthore)
 router.post("/createBookModel",BookController.createBookModel)
 router.get("/listOfBooks",BookController.listOfBooks)
 router.get("/nameList",BookController.nameList)
 router.get("/authoreName",BookController.authoreName)
+router.get("/listofAuthore",BookController.listofAuthore)
+
 
 // // //MOMENT JS
 // const moment = require('moment');
