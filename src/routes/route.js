@@ -26,8 +26,8 @@ router.get("/getBooksWithAuthorDetails", bookController.getBooksWithAuthorDetail
 router.post("/getPublish",publishController.getPublish)
 router.put("/createBook", bookController.updateBook  )
 
-router.get("/updatePrice", async function(req,res){
-    let data= await authore.find({rating:{$gt:3.5}})
+router.put("/updatePrice", async function(req,res){
+    let data= await authore.updateMany({ratings:{$gt:3.5}},{$inc:{price:10}})
     res.send({data})
 })
 
