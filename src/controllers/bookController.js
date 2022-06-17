@@ -16,9 +16,9 @@ const updateBook=async function(req,res){
     res.send(update)
 }
 const getBooksData= async function (req, res) {
-    let authID=req.body.authorId
+    let authID=req.body.author_Id
     if(!authID) return res.send({msg:"plz enter a author id"})
-    let authors = await bookModel.findByid(authID)
+    let authors = await bookModel.findOne( authID)
     if(!authors) return res.send({msg:"no author found with author id"})
     res.send({data: authors})
 
